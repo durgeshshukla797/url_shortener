@@ -2,7 +2,7 @@ const express =require('express');
 const { connectToMongoDb} =require('./connect')
 const urlRoute =require('./Routes/url.route')
 const URL =require('./Models/url.model')
-const cors = require('cors');
+const cors =require('cors');
 
 const app=express();
 const PORT=8001;

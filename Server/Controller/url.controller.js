@@ -4,11 +4,6 @@ const URL =require('../Models/url.model')
 
 async function handlegenerateNewShortUrl(req,res){
   const body =req.body;//basically body se url lenge
-
-  if(!body.url){
-     return res.status(400).json({error: 'Url is required'})
-  }
-
    const shortID = shortid();
 
   await URL.create({// this url is our model that we have created
@@ -30,6 +25,7 @@ async function handleGetAnalytics(req,res){
     totalClicks: result.visitHistory.length, analytics: result.visitHistory
    })
 }
+
 
 module.exports={
   handlegenerateNewShortUrl,
