@@ -2,10 +2,12 @@ const express =require('express');
 const { connectToMongoDb} =require('./connect')
 const urlRoute =require('./Routes/url.route')
 const URL =require('./Models/url.model')
+const cors = require('cors');
 
 const app=express();
 const PORT=8001;
 
+app.use(cors());
 app.use(express.json());
 
 // sending mongodb url to connect 
