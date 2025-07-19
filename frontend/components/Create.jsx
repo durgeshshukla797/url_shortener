@@ -14,9 +14,8 @@ function Create() {
 
     axios.post(`${backendBase}/url`, { url })
       .then(res => {
-        // Use res.data.id (because backend returns { id: shortId })
-        const shortId = res.data.id;
-        setShortUrl(`${backendBase}/${shortId}`);
+        const generatedShortId = res.data.id;  
+        setShortUrl(`${backendBase}/${generatedShortId}`);
         setUrl("");
       })
       .catch(err => {
@@ -28,11 +27,12 @@ function Create() {
   return (
     <div style={{ textAlign: 'center', marginTop: '50px' }}>
       <h1>URL Shortener</h1>
+
       <input
         type="text"
         placeholder="Enter the URL"
         value={url}
-        onChange={(e) => setUrl(e.target.value)}
+        onChange={e => setUrl(e.target.value)}
         style={{ padding: '10px', width: '300px', marginRight: '10px' }}
       />
       <button onClick={handleSubmit} style={{ padding: '10px' }}>
